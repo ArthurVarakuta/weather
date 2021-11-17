@@ -1,13 +1,13 @@
 <template>
    <div class="main">
-    <div class="block">   
-        <div class="head">  
+    <div class="block">
+        <div class="head">
             <div>
-                <h2 class="title">City:</h2>  
+                <h2 class="title">City:</h2>
             </div>
             <div>
-                <h2>{{weather.name}} <img :src='"http://purecatamphetamine.github.io/country-flag-icons/3x2/" + weather.sys.country + ".svg"'></h2>                
-            </div>     
+                <h2>{{weather.name}} <img :src='"http://purecatamphetamine.github.io/country-flag-icons/3x2/" + weather.sys.country + ".svg"'></h2>
+            </div>
         </div>
 
             <div class="card">
@@ -25,7 +25,7 @@
                 <p>Sunset: {{weather.sys.sunset}}</p>
                 <p>Timezone: {{weather.timezone}}</p>
             </div>
-        </div>            
+        </div>
     </div>
 </template>
 
@@ -63,12 +63,12 @@ export default {
                 let minutes = date.getMinutes();
                 let seconds = date.getSeconds();
                 this.weather.sys.sunrise = `${hours}:${minutes}:${seconds}`
-                
+
                 date = new Date (this.weather.sys.sunset * 1000)
                 hours = date.getHours() + this.weather.timezone/3600;
                 minutes = date.getMinutes();
                 seconds = date.getSeconds();
-                this.weather.sys.sunset = `${hours}:${minutes}:${seconds}`                  
+                this.weather.sys.sunset = `${hours}:${minutes}:${seconds}`
                 this.weather.timezone = `UTC${this.return_char()}${this.weather.timezone/3600}`
             })
     },
@@ -76,7 +76,8 @@ export default {
 </script>
 <style scoped>
 .main{
-        width: 100%;
+  font-family:"Source Code Pro";
+  width: 100%;
         margin: 0 auto;
 
     }
@@ -122,7 +123,7 @@ export default {
     }
     .card{
         width: 30%;
-        background: lightblue;
+        background: lightgreen;
         border-radius: 20px;
         padding: 20px 40px;
         margin: 20px auto;

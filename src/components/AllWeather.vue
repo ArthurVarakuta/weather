@@ -1,16 +1,16 @@
 <template>
     <div class="main">
         <button class="editTheme btn-edit">Edit</button>
-    <div class="block">               
-        <div class="head">  
+    <div class="block">
+        <div class="head">
             <div>
-                <h2 class="title">Your Location</h2>  
+                <h2 class="title">Your Location</h2>
             </div>
             <div>
-                <h2>{{weather.name}} <img :src='"http://purecatamphetamine.github.io/country-flag-icons/3x2/" + weather.sys.country + ".svg"'></h2>                
-            </div>     
+                <h2>{{weather.name}} <img :src='"http://purecatamphetamine.github.io/country-flag-icons/3x2/" + weather.sys.country + ".svg"'></h2>
+            </div>
         </div>
-   
+
             <div class="card">
                 <h2>Information About Weather In Your City: </h2>
                 <p>Main: {{weather.weather[0].main}}</p>
@@ -26,11 +26,11 @@
                 <p>Sunset: {{weather.sys.sunset}}</p>
                 <p>Timezone: {{weather.timezone}}</p>
             </div>
-            <h2 class="title">Enter City For Search</h2>     
+            <h2 class="title">Введите свой город для поиска</h2>
             <div class="search">
                 <div class="add">
                     <input type="text" v-model="inputCity">
-                    <router-link  :to="'/weather-info/'+inputCity" ><button > SeArCh </button></router-link>
+                    <router-link  :to="'/weather-info/'+inputCity" ><button > Найти </button></router-link>
                 </div>
             </div>
         </div>
@@ -78,20 +78,20 @@ export default {
                         let minutes = date.getMinutes();
                         let seconds = date.getSeconds();
                         this.weather.sys.sunrise = `${hours}:${minutes}:${seconds}`
-                
+
                         date = new Date (this.weather.sys.sunset * 1000)
                         hours = date.getHours() + this.weather.timezone/3600;
                         minutes = date.getMinutes();
                         seconds = date.getSeconds();
-                        this.weather.sys.sunset = `${hours}:${minutes}:${seconds}`                  
+                        this.weather.sys.sunset = `${hours}:${minutes}:${seconds}`
                         this.weather.timezone = `UTC${this.return_char()}${this.weather.timezone/3600}`
-                    }) 
-            })  
-        } 
+                    })
+            })
+        }
         else {
             alert("Geolocation is not supported by this browser.");
         }
-             
+
     },
     methods: {
         return_char: function(){
@@ -113,7 +113,7 @@ export default {
             this.myLocationlatitude = `${position.coords.latitude}`
             this.myLocationlongitude = `${position.coords.longitude}`
             console.log(`${this.myLocationlatitude} | ${this.myLocationlongitude}`)
-        },            
+        },
     }
 }
 </script>
@@ -122,13 +122,13 @@ export default {
     .main{
         width: 100%;
         margin: 0 auto;
-
+      padding-top:0px ;
     }
     .block{
         margin: 0 auto;
         width: 70%;
-        margin-top: 100px;
-        background: rgba(255, 255, 255, 0.26);
+        margin-top: 0px;
+        background: rgba(255, 255, 255, 0.56);
         padding: 10px 20px;
         border-radius: 15px;
         box-shadow: 5px 5px 10px#000;
@@ -162,11 +162,12 @@ export default {
         height: 40px;
         width: 100px;
         border-radius: 15px;
-        background: lightblue;
+        background: green;
+      color: white;
     }
     .card{
         width: 30%;
-        background: lightblue;
+        background: lightgreen;
         border-radius: 20px;
         padding: 20px 40px;
         margin: 20px auto;
@@ -181,7 +182,7 @@ export default {
         width: 100px;
         margin: 20px 50px;
         border-radius: 5px ;
-        background: cornflowerblue;
+        background: forestgreen  ;
         color: #fff;
         font-size: 18px;
     }
